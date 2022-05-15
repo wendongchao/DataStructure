@@ -1,7 +1,7 @@
 package com.wdc.algorithm.test;
 
 
-import com.wdc.algorithm.list.LinkedList;
+import com.wdc.structure.list.LinkedList;
 
 /**
  * @author wendongchao
@@ -12,15 +12,15 @@ public class LinkedListTest {
     public static void main(String[] args) throws Exception {
 
         LinkedList<String> list1 = new LinkedList<String>();
-        list1.add("Rico");
-        list1.add("Rico");
-        list1.add("Livia");
-        list1.add("TJU");
-        list1.add("Livia");
-        list1.add("NEU");
-        list1.add("NEU");
-        list1.add("Rico");
-        list1.add("NEU");
+        list1.addEnd("Rico");
+        list1.addEnd("Rico");
+        list1.addEnd("Livia");
+        list1.addEnd("TJU");
+        list1.addEnd("Livia");
+        list1.addEnd("NEU");
+        list1.addEnd("NEU");
+        list1.addEnd("Rico");
+        list1.addEnd("NEU");
 
         System.out.println("原链表：");
         list1.print();
@@ -59,8 +59,8 @@ public class LinkedListTest {
 
 
         LinkedList<String> list2 = new LinkedList<String>();
-        list2.add("书呆子");
-        list2.add(list1.getEndK(2));
+        list2.addEnd("书呆子");
+        list2.addEnd(list1.getEndK(2));
         System.out.println("判断两链表是否相交：");
         list1.print();
         list2.print();

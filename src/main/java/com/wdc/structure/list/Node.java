@@ -1,4 +1,4 @@
-package com.wdc.algorithm.list;
+package com.wdc.structure.list;
 
 /**
  * Title: 结点类
@@ -9,18 +9,12 @@ package com.wdc.algorithm.list;
  */
 public class Node<T> {
     //包可见性
-    Node<T> next;
-    T data;
+    Node<T> next;// 下一节点
+    T data;// 当前数据
 
     /**
-     * 构造函数
-     *
-     * @description 构造一个新节点
-     * @author rico
-     * @created 2017年4月6日 下午9:56:56
-     * @param data
-     *            新元素数据
-     *            新元素与链表结合节点
+     * 构造一个新节点
+     * @param data 元素数据
      */
     public Node(T data) {
         this.data = data;

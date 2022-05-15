@@ -3,6 +3,8 @@ package com.wdc.structure.queue;
 import java.util.Scanner;
 
 /**
+ * 队列：
+ *  环形数组队列
  * @author dongchao
  * @time 2022-05-14 20:38
  */
