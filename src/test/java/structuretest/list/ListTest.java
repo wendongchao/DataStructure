@@ -1,4 +1,4 @@
-package structuretest;
+package structuretest.list;
 
 import junit.framework.TestCase;
 

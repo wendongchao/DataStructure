@@ -22,17 +22,17 @@ package com.wdc.structure.list;
  * @Date 2022/2/23 10:19
  */
 public class LinkedList<E> {
-    private Node<E> head; // 链表表头
+    private SingleNode<E> head; // 链表表头
     private int size; // 链表大小
 
     /**
      * 初始化头节点
      */
     public LinkedList() {
-        head = new Node<E>(null);
+        head = new SingleNode<E>(null);
     }
 
-    public Node<E> getHead() {
+    public SingleNode<E> getHead() {
         return head;
     }
 
@@ -48,7 +48,7 @@ public class LinkedList<E> {
      * 输出链表
      */
     public void print() {
-        Node<E> cur = head.next;
+        SingleNode<E> cur = head.next;
         while (cur != null) {
             System.out.print(cur.data + " ");
             cur = cur.next;
@@ -60,7 +60,7 @@ public class LinkedList<E> {
      * @description 从尾到头输出单链表(递归法)
      * @param head
      */
-    public void reversePrint(Node<E> head) {
+    public void reversePrint(SingleNode<E> head) {
         if (head.next != null) {
             reversePrint(head.next); // 不断"递去"
             System.out.print(head.next.data + " "); // "归来"开始打印
@@ -72,8 +72,8 @@ public class LinkedList<E> {
      * @param node
      * @return
      */
-    public Node<E> addEnd(Node<E> node) {
-        Node<E> cur = head;
+    public SingleNode<E> addEnd(SingleNode<E> node) {
+        SingleNode<E> cur = head;
         while(cur.next != null){
             cur = cur.next;
         }
@@ -82,8 +82,8 @@ public class LinkedList<E> {
         return node;
     }
 
-    public Node<E> addEnd(E data) {
-        Node<E> node = new Node<E>(data);// 插入的节点
+    public SingleNode<E> addEnd(E data) {
+        SingleNode<E> node = new SingleNode<E>(data);// 插入的节点
         return addEnd(node);
     }
 
@@ -94,21 +94,21 @@ public class LinkedList<E> {
      * @return
      * @throws Exception
      */
-    public Node<E> addIndex(E data, int index) throws Exception {
-        Node<E> node = new Node<E>(data);// 插入的节点
+    public SingleNode<E> addIndex(E data, int index) throws Exception {
+        SingleNode<E> node = new SingleNode<E>(data);// 插入的节点
         return addIndex(node,index);
     }
 
-    public Node<E> addIndex(Node<E> node, int index) throws Exception {
+    public SingleNode<E> addIndex(SingleNode<E> node, int index) throws Exception {
         if (index > size) {
             throw new Exception("超出范围...");
         }
-        Node<E> cur = head;
+        SingleNode<E> cur = head;
         for (int i = 0; i < index; i++) {
             cur = cur.next;
         }
 
-        Node<E> temp = cur.next;
+        SingleNode<E> temp = cur.next;
         cur.next = node;
         node.next = temp;
         size++;
@@ -127,12 +127,12 @@ public class LinkedList<E> {
             throw new Exception("超出范围...");
         }
 
-        Node<E> cur = head;
+        SingleNode<E> cur = head;
         for (int i = 0; i < index; i++) {
             cur = cur.next;
         }
 
-        Node<E> temp = cur.next;
+        SingleNode<E> temp = cur.next;
         cur.next = temp.next;
         temp.next = null;
         size--;
@@ -152,15 +152,15 @@ public class LinkedList<E> {
      * 删除链表中的重复元素(外循环 + 内循环)
      * 时间复杂度：O(n^2)
      */
-    public void removeDuplicateNodes() {
-        Node<E> cur = head.next;
+    public void removeDuplicateSingleNodes() {
+        SingleNode<E> cur = head.next;
         while (cur != null) { // 外循环
-            Node<E> temp = cur;
+            SingleNode<E> temp = cur;
             while (temp != null && temp.next != null) { // 内循环
                 if (cur.data.equals(temp.next.data)) {
-                    Node<E> duplicateNode = temp.next;// 重复节点
-                    temp.next = duplicateNode.next;
-                    duplicateNode.next = null;
+                    SingleNode<E> duplicateSingleNode = temp.next;// 重复节点
+                    temp.next = duplicateSingleNode.next;
+                    duplicateSingleNode.next = null;
                     size --;
                 }
                 temp = temp.next;
@@ -176,11 +176,11 @@ public class LinkedList<E> {
      * @return
      * @throws Exception
      */
-    public Node<E> getEndK(int k) throws Exception {
+    public SingleNode<E> getEndK(int k) throws Exception {
         if (k > size - 1 || k < 0) {
             throw new Exception("超出范围...");
         }
-        Node<E> cur = head.next;
+        SingleNode<E> cur = head.next;
         if (cur == null) {
             return null;
         }
@@ -194,11 +194,11 @@ public class LinkedList<E> {
      * @description 反转链表
      */
     public void reverseLinkedList() {
-        Node<E> cur = head.next; // 原链表第一个元素
-        Node<E> pre = null; // 反转后的链表最后一个元素
+        SingleNode<E> cur = head.next; // 原链表第一个元素
+        SingleNode<E> pre = null; // 反转后的链表最后一个元素
 
         while (cur != null) { // 对原链表中的每个节点进行反转
-            Node<E> next = cur.next; // 记录当前节点的下一个节点
+            SingleNode<E> next = cur.next; // 记录当前节点的下一个节点
             cur.next = pre; // 当前节点指向反转后的链表
             pre = cur; // 更新反转后的链表
             cur = next; // 更新当前节点(移动到下一个节点)
@@ -210,9 +210,9 @@ public class LinkedList<E> {
      * @description 寻找单链表中的中间节点(双指针法)
      * @author rico
      */
-    public void printMiddleNodes() {
-        Node<E> index1 = head.next; // 慢指针
-        Node<E> index2 = head.next; // 快指针
+    public void printMiddleSingleNodes() {
+        SingleNode<E> index1 = head.next; // 慢指针
+        SingleNode<E> index2 = head.next; // 快指针
         if (head.next == null) {
             System.out.println(index1.data);
         }
@@ -233,8 +233,8 @@ public class LinkedList<E> {
      * @return
      */
     public boolean hasLoop() {
-        Node<E> index1 = head.next; // 慢指针
-        Node<E> index2 = head.next; // 快指针
+        SingleNode<E> index1 = head.next; // 慢指针
+        SingleNode<E> index2 = head.next; // 快指针
         while (index2 != null && index2.next != null
                 && index2.next.next != null) {
             index1 = index1.next;
@@ -252,12 +252,12 @@ public class LinkedList<E> {
      * @param node
      * @return
      */
-    public boolean deleteNodeWithoutHead(Node<E> node) {
+    public boolean deleteSingleNodeWithoutHead(SingleNode<E> node) {
         if (node == null || node.next == null) { // 当指定节点为空或者为尾节点时，无法删除
             return false;
         }
 
-        Node<E> next = node.next;
+        SingleNode<E> next = node.next;
 
         // 将后继节点的内容复制到当前节点
         node.data = next.data;
@@ -274,8 +274,8 @@ public class LinkedList<E> {
      * @return
      */
     public boolean isIntersect(LinkedList<E> list2) {
-        Node<E> cur1 = head.next;   // 当前链表
-        Node<E> cur2 = list2.getHead().next;  // 目标链表
+        SingleNode<E> cur1 = head.next;   // 当前链表
+        SingleNode<E> cur2 = list2.getHead().next;  // 目标链表
 
         // 两链表有一个为空，则返回 false
         if(cur1 == null || cur2 == null){
@@ -300,9 +300,9 @@ public class LinkedList<E> {
      * @author rico
      * @return
      */
-    public Node<E> getIntersectionPoint(LinkedList<E> list2) {
-        Node<E> cur1 = head.next;   // 当前链表
-        Node<E> cur2 = list2.getHead().next;  // 目标链表
+    public SingleNode<E> getIntersectionPoint(LinkedList<E> list2) {
+        SingleNode<E> cur1 = head.next;   // 当前链表
+        SingleNode<E> cur2 = list2.getHead().next;  // 目标链表
 
         if(this.isIntersect(list2)){  // 先判断是否相交
             // 让长度较长的链表先移动step步
