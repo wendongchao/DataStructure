@@ -6,13 +6,9 @@ package com.wdc.structure.list;
  * @time 2022-05-15 23:19
  */
 public class SingleNode<T> {
-    SingleNode<T> next;// 下一节点
     T data;// 当前数据
+    SingleNode<T> next;// 下一节点
 
-    /**
-     * 构造一个新节点
-     * @param data 元素数据
-     */
     public SingleNode(T data) {
         this.data = data;
     }
