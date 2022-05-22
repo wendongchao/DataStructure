@@ -63,6 +63,11 @@ public class SingleLinkedList<E> {
         }
     }
 
+    public SingleNode<E> add(E data) {
+        SingleNode<E> node = new SingleNode<E>(data);
+        return add(node);
+    }
+
     /**
      * 添加节点，并返回该节点
      * @param node
@@ -279,6 +284,96 @@ public class SingleLinkedList<E> {
         }
         head.next = pre; // 将原链表的头结点指向反转后的链表
     }
+
+    public SingleNode<E> reverseLinkedList(SingleNode<E> node) {
+        SingleNode<E> cur = node.next; // 原链表第一个元素
+        SingleNode<E> pre = null; // 反转后的链表最后一个元素
+
+        while (cur != null) { // 对原链表中的每个节点进行反转
+            SingleNode<E> next = cur.next; // 记录当前节点的下一个节点
+            cur.next = pre; // 当前节点指向反转后的链表
+            pre = cur; // 更新反转后的链表
+            cur = next; // 更新当前节点(移动到下一个节点)
+        }
+        node.next = pre; // 将原链表的头结点指向反转后的链表
+        return node;
+    }
+
+    /**
+     * 删除链表重复元素
+     * @param data
+     * @return
+     */
+    public SingleNode<E> removeElements(E data) {
+        SingleNode<E> cur = head;
+        while (cur.next != null) {
+            if (cur.next.data.equals(data)) {
+                cur.next = cur.next.next;
+            } else {
+                cur = cur.next;
+            }
+        }
+        return cur;
+    }
+
+    /**
+     * 奇偶链表
+     * 获取奇数链表，偶数链表，拼接起来
+     * @return
+     */
+    public SingleNode<E> oddEvenList() {
+        SingleNode<E> cur = head;
+        SingleNode<E> doub = head.next;
+        SingleNode<E> one = cur;
+        SingleNode<E> two = doub;
+
+        while (cur != null && cur.next != null && cur.next.next != null) {
+            cur.next = cur.next.next;
+            cur = cur.next;
+            doub.next = doub.next.next;
+            doub = doub.next;
+        }
+        cur.next = two;
+        return one;
+    }
+
+    /**
+     * 回文联表
+     *  以中间节点，两边是相同的
+     * @return
+     */
+    public boolean isPalindrome() {
+        SingleNode<E> slow = head.next;
+        SingleNode<E> fast = head.next;
+        if (slow == null) {
+            return false;
+        }
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        //如果fast不为空，说明链表的长度是奇数个
+        if (fast != null) {
+            slow = slow.next;
+        }
+
+        SingleNode<E> first = head.next;
+
+        slow = reverseLinkedList(slow);
+
+        while (slow != null) {
+            if (first.data.equals(slow.data)) {
+                first = first.next;
+                slow = slow.next;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
 
 

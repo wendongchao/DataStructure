@@ -32,7 +32,7 @@ public class LinkedListTest {
 
         System.out.println();
 
-        list1.removeDuplicateNodes();
+//        list1.removeDuplicateNodes();
         System.out.println("删除重复点后的链表：");
         list1.print();
         System.out.println();
@@ -54,7 +54,7 @@ public class LinkedListTest {
         System.out.println();
 
         System.out.println("打印链表中间节点：");
-        list1.printMiddleNodes();
+//        list1.printMiddleNodes();
         System.out.println();
 
 
@@ -69,7 +69,7 @@ public class LinkedListTest {
         System.out.println("交点是 ： " + list1.getIntersectionPoint(list2));
         System.out.println();
 
-        list1.deleteNodeWithoutHead(list1.getEndK(2));
+//        list1.deleteNodeWithoutHead(list1.getEndK(2));
         System.out.println("打印删除特定节点后的链表：");
         list1.print();
     }
