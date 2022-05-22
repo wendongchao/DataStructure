@@ -7,10 +7,13 @@ package com.wdc.structure.list;
  */
 public class DoublyLinkedList<E> {
     private DoublyNode<E> head;// 头节点
+    private DoublyNode<E> tail;// 尾节点
     private int size;
 
     public DoublyLinkedList() {
+        size = 0;
         this.head = new DoublyNode<E>(null);
+        this.tail = new DoublyNode<E>(null);
     }
 
     /**
@@ -43,18 +46,18 @@ public class DoublyLinkedList<E> {
      * @return
      */
     public DoublyNode<E> add(DoublyNode<E> node) {
-        if (head == null) {
+        if (isEmpty()) {
             head = node;
             return head;
-        } else {
-            DoublyNode<E> cur = head;
-            while (cur.next != null) {
-                cur = cur.next;
-            }
-            cur.next = node;
-            node.prev = cur;
-            size++;
         }
+        DoublyNode<E> cur = head;
+        while (cur.next != null) {
+            cur = cur.next;
+        }
+        cur.next = node;
+        node.prev = cur;
+        size++;
+
         return node;
     }
 
@@ -88,8 +91,10 @@ public class DoublyLinkedList<E> {
      */
     public void addAtHead(E data) {
         DoublyNode<E> node = new DoublyNode<E>(data);
-        if (head == null) {
-            head = node;
+        if (isEmpty()) {
+            head.next = node;
+            tail.prev = node;
+            return;
         }
         DoublyNode<E> cur = head;
         node.next = cur;
@@ -105,8 +110,10 @@ public class DoublyLinkedList<E> {
      */
     public void addAtTail(E data) {
         DoublyNode<E> node = new DoublyNode<E>(data);
-        if (head == null) {
-            head = node;
+        if (isEmpty()) {
+            head.next = node;
+            tail.prev = node;
+            return;
         }
         DoublyNode<E> cur = head;
         while (cur.next != null) {
