@@ -285,20 +285,6 @@ public class SingleLinkedList<E> {
         head.next = pre; // 将原链表的头结点指向反转后的链表
     }
 
-    public SingleNode<E> reverseLinkedList(SingleNode<E> node) {
-        SingleNode<E> cur = node.next; // 原链表第一个元素
-        SingleNode<E> pre = null; // 反转后的链表最后一个元素
-
-        while (cur != null) { // 对原链表中的每个节点进行反转
-            SingleNode<E> next = cur.next; // 记录当前节点的下一个节点
-            cur.next = pre; // 当前节点指向反转后的链表
-            pre = cur; // 更新反转后的链表
-            cur = next; // 更新当前节点(移动到下一个节点)
-        }
-        node.next = pre; // 将原链表的头结点指向反转后的链表
-        return node;
-    }
-
     /**
      * 删除链表重复元素
      * @param data
@@ -360,8 +346,15 @@ public class SingleLinkedList<E> {
         }
 
         SingleNode<E> first = head.next;
+        SingleNode<E> pre = null;
 
-        slow = reverseLinkedList(slow);
+        while (slow.next != null) {
+            SingleNode<E> temp = slow.next;
+            slow.next = pre;
+            pre = slow;
+            slow = temp;
+        }
+        slow.next = pre;
 
         while (slow != null) {
             if (first.data.equals(slow.data)) {
