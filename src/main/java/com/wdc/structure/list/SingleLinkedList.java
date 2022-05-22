@@ -93,7 +93,8 @@ public class SingleLinkedList<E> {
         SingleNode<E> temp = head.next;
         cur.next = node;
         node.next = temp;
-        return node;
+        head = node;
+        return head;
     }
 
     /**

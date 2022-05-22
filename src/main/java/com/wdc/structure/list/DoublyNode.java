@@ -6,7 +6,7 @@ package com.wdc.structure.list;
  * @time 2022-05-15 23:23
  */
 public class DoublyNode<T> {
-    DoublyNode<T> pre;// 前驱
+    DoublyNode<T> prev;// 前驱
     T data;// 数据
     DoublyNode<T> next;// 后置
 

@@ -8,7 +8,7 @@ import junit.framework.TestCase;
  * @author dongchao
  * @time 2022-05-15 20:07
  */
-public class ListTest extends TestCase {
+public class SingleListTest extends TestCase {
 
     /**
      * 奇偶链表
