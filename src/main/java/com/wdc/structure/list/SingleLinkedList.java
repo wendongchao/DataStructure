@@ -368,7 +368,73 @@ public class SingleLinkedList<E> {
         return true;
     }
 
+    /**
+     * 合并两个链表
+     * 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+     * @param node1
+     * @param node2
+     * @return
+     */
+    public SingleNode<Integer> mergeTwoLists(SingleNode<Integer> node1, SingleNode<Integer> node2) {
+        SingleNode<Integer> node = new SingleNode<Integer>(null);
+        SingleNode<Integer> result = node;
+        while (node1 != null && node2 != null) {
+            if (node1.data > node2.data) {
+                node.next = node2;
+                node2 = node2.next;
+            } else {
+                node.next = node1;
+                node1 = node1.next;
+            }
+            node = node.next;
+        }
 
+        if (node1 != null) {
+            node.next = node1;
+        } else if (node2 != null) {
+            node.next = node2;
+        }
+        return result.next;
+    }
+
+    /**
+     * 两个链表的数值相加
+     * 给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
+     *
+     * 请你将两个数相加，并以相同形式返回一个表示和的链表。
+     *
+     * 你可以假设除了数字 0 之外，这两个数都不会以 0 开头。
+     *
+     * 作者：力扣 (LeetCode)
+     * 链接：https://leetcode.cn/leetbook/read/linked-list/fv6w7/
+     * 来源：力扣（LeetCode）
+     * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     * @param node1
+     * @param node2
+     * @return
+     */
+    public SingleNode<Integer> addTwoNumbers(SingleNode<Integer> node1, SingleNode<Integer> node2) {
+
+        SingleNode<Integer> node = new SingleNode<>(null);
+        SingleNode<Integer> result = node;
+
+        int carry = 0;
+        while (node1 != null || node2 != null || carry > 0) {
+            int num1 = node1 == null ? 0 : node1.data;
+            int num2 = node2 == null ? 0 : node2.data;
+            int sum = num1 + num2 + carry;
+            carry = sum / 10;// 余数
+            result.next = new SingleNode<Integer>(sum % 10);
+            result = result.next;
+            if (node1 != null) {
+                node1 = node1.next;
+            }
+            if (node2 != null) {
+                node2 = node2.next;
+            }
+        }
+        return result.next;
+    }
 
 
 }
