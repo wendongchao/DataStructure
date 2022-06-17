@@ -19,4 +19,5 @@ public class DoublyNode2<T> {
     public String toString() {
         return data.toString();
     }
+
 }

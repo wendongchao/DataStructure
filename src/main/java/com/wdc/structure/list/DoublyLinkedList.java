@@ -166,36 +166,4 @@ public class DoublyLinkedList<E> {
         cur.next.prev = cur;
     }
 
-    /**
-     *
-     * @param head
-     * @return
-     */
-    public DoublyNode2<Integer> flatten(DoublyNode2<Integer> head) {
-
-        DoublyNode2<Integer> node = new DoublyNode2<>(null);
-        DoublyNode2<Integer> result = node;
-
-        while (head != null) {
-            result.next = head;
-            result = result.next;
-            head = head.next;
-        }
-        while (head == null) {
-            head = head.next;
-            if (result.prev != null) {
-                result = result.prev;
-            }
-            flatten(head);
-        }
-
-    }
-
-    public void See(DoublyNode2<Integer> temp) {
-
-    }
-
-
-
-
 }
