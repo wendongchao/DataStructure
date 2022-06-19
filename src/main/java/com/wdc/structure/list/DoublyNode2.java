@@ -1,10 +1,13 @@
 package com.wdc.structure.list;
 
+import lombok.Data;
+
 /**
  * 双向链表节点
  * @author dongchao
  * @time 2022-05-15 23:23
  */
+@Data
 public class DoublyNode2<T> {
     DoublyNode2<T> prev;// 前驱
     T data;// 数据

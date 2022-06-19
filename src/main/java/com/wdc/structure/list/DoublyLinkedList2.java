@@ -1,10 +1,13 @@
 package com.wdc.structure.list;
 
+import lombok.Data;
+
 /**
  * 双链表
  * @author dongchao
  * @time 2022-05-22 16:47
  */
+@Data
 public class DoublyLinkedList2<E> {
     private DoublyNode2<E> head;// 头节点
     private int size;
@@ -12,6 +15,18 @@ public class DoublyLinkedList2<E> {
     public DoublyLinkedList2() {
         size = 0;
         this.head = new DoublyNode2<E>(null);
+    }
+
+    /**
+     * 输出链表
+     */
+    public void print() {
+        DoublyNode2<E> cur = head.next;
+        while (cur != null) {
+            System.out.print(cur.data + " ");
+            cur = cur.next;
+        }
+        System.out.println();
     }
 
     /**
@@ -30,6 +45,7 @@ public class DoublyLinkedList2<E> {
     public DoublyNode2<E> add(DoublyNode2<E> node) {
         if (isEmpty()) {
             head = node;
+            size++;
             return head;
         }
         DoublyNode2<E> cur = head;
@@ -48,7 +64,7 @@ public class DoublyLinkedList2<E> {
      * @return
      */
     public DoublyNode2<Integer> flatten(DoublyNode2<Integer> head) {
-        if (head == null) return head;
+        if (head == null) return null;
         DoublyNode2<Integer> cur = head;
         while (cur != null) {
             if (cur.child != null) {
