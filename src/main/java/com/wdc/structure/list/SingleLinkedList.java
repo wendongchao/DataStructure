@@ -415,7 +415,7 @@ public class SingleLinkedList<E> {
      */
     public SingleNode<Integer> addTwoNumbers(SingleNode<Integer> node1, SingleNode<Integer> node2) {
 
-        SingleNode<Integer> node = new SingleNode<>(null);
+        SingleNode<Integer> node = new SingleNode<Integer>(null);
         SingleNode<Integer> result = node;
 
         int carry = 0;
