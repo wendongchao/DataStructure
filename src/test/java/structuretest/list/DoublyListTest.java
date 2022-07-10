@@ -11,21 +11,21 @@ import junit.framework.TestCase;
 public class DoublyListTest extends TestCase {
 
     public DoublyLinkedList2<Integer> getDoublyParam() {
-        DoublyLinkedList2<Integer> linkedList2 = new DoublyLinkedList2<>();
+        DoublyLinkedList2<Integer> linkedList2 = new DoublyLinkedList2<Integer>();
 
-        DoublyNode2<Integer> none = new DoublyNode2<>(null);
-        DoublyNode2<Integer> node1 = new DoublyNode2<>(1);
-        DoublyNode2<Integer> node2 = new DoublyNode2<>(2);
-        DoublyNode2<Integer> node3 = new DoublyNode2<>(3);
-        DoublyNode2<Integer> node4 = new DoublyNode2<>(4);
-        DoublyNode2<Integer> node5 = new DoublyNode2<>(5);
-        DoublyNode2<Integer> node6 = new DoublyNode2<>(6);
-        DoublyNode2<Integer> node7 = new DoublyNode2<>(7);
-        DoublyNode2<Integer> node8 = new DoublyNode2<>(8);
-        DoublyNode2<Integer> node9 = new DoublyNode2<>(9);
-        DoublyNode2<Integer> node10 = new DoublyNode2<>(10);
-        DoublyNode2<Integer> node11 = new DoublyNode2<>(11);
-        DoublyNode2<Integer> node12 = new DoublyNode2<>(12);
+        DoublyNode2<Integer> none = new DoublyNode2<Integer>(null);
+        DoublyNode2<Integer> node1 = new DoublyNode2<Integer>(1);
+        DoublyNode2<Integer> node2 = new DoublyNode2<Integer>(2);
+        DoublyNode2<Integer> node3 = new DoublyNode2<Integer>(3);
+        DoublyNode2<Integer> node4 = new DoublyNode2<Integer>(4);
+        DoublyNode2<Integer> node5 = new DoublyNode2<Integer>(5);
+        DoublyNode2<Integer> node6 = new DoublyNode2<Integer>(6);
+        DoublyNode2<Integer> node7 = new DoublyNode2<Integer>(7);
+        DoublyNode2<Integer> node8 = new DoublyNode2<Integer>(8);
+        DoublyNode2<Integer> node9 = new DoublyNode2<Integer>(9);
+        DoublyNode2<Integer> node10 = new DoublyNode2<Integer>(10);
+        DoublyNode2<Integer> node11 = new DoublyNode2<Integer>(11);
+        DoublyNode2<Integer> node12 = new DoublyNode2<Integer>(12);
 
         node3.setChild(node7);
         node8.setChild(node11);

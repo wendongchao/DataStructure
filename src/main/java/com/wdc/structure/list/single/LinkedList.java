@@ -1,5 +1,4 @@
-package com.wdc.structure.list.list2;
-
+package com.wdc.structure.list.single;
 
 
 /**
