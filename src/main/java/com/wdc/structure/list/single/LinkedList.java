@@ -196,5 +196,125 @@ public class LinkedList {
         return cur;
     }
 
+    /**
+     * 判断单链表是否有环(双指针法)
+     * 慢指针针每次走一步，快指针每次走两步，
+     * 如果相遇就说明有环，如果有一个为空说明没有环
+     * @param head
+     * @return
+     */
+    public boolean hasCycle(SingleNode head) {
+        if (head == null) {
+            return false;
+        }
+        SingleNode fast = head;// 快指针
+        SingleNode slow = head;// 慢指针
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 如果链表有环，返回入环点
+     * @param head
+     * @return
+     */
+    public SingleNode detectCycle(SingleNode head) {
+        if (head == null) {
+            return null;
+        }
+        SingleNode fast = head;// 快指针
+        SingleNode slow = head;// 慢指针
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                break;
+            }
+        }
+        // 无环
+        if (fast == null || fast.next == null) {
+            return null;
+        }
+        // 有环
+        fast = head;
+        while (slow != fast) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return fast;
+    }
+
+    /**
+     * 相交链表，返回两个链表相交的节点
+     * @param headA
+     * @param headB
+     * @return
+     */
+    public SingleNode getIntersectionNode(SingleNode headA, SingleNode headB) {
+        //tempA和tempB我们可以认为是A,B两个指针
+        SingleNode tempA = headA;
+        SingleNode tempB = headB;
+        while (tempA != tempB) {
+            //如果指针tempA不为空，tempA就往后移一步。
+            //如果指针tempA为空，就让指针tempA指向headB（注意这里是headB不是tempB）
+            tempA = tempA != null ? tempA.next : headB;
+            //指针tempB同上
+            tempB = tempB != null ? tempB.next : headA;
+        }
+        //tempA要么是空，要么是两链表的交点
+        return tempA;
+    }
+
+    /**
+     * 删除链表的倒数第 n 个结点，并且返回链表的头结点
+     * @param head
+     * @param n
+     * @return
+     */
+    public SingleNode removeNthFromEnd(SingleNode head, int n) {
+        SingleNode fast = head;// 快指针
+        SingleNode slow = head;// 慢指针
+        // fast移n步，
+        for (int i = 0; i < n; i++) {
+            fast = fast.next;
+        }
+        // 如果fast为空，表示删除的是头结点
+        // 因为fast=null，那么n>size,从后往前数，就会删除head
+        if (fast == null) {
+            return head.next;
+        }
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        //这里最终slow不是倒数第n个节点，他是倒数第n+1个节点，
+        //他的下一个结点是倒数第n个节点,所以删除的是他的下一个结点
+        slow.next = slow.next.next;
+        return head;
+    }
+
+    /**
+     * 反转链表
+     * @param head
+     * @return
+     */
+    public SingleNode reverseList(SingleNode head) {
+        SingleNode prev = null;
+        SingleNode curr = head;
+        while (curr != null) {
+            SingleNode temp = curr.next;
+            curr.next = null;
+            prev = curr;
+            curr = temp;
+        }
+        return prev;
+    }
+
 
 }
