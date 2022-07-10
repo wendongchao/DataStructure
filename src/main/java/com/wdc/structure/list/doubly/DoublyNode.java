@@ -1,4 +1,4 @@
-package com.wdc.structure.list.list2;
+package com.wdc.structure.list.doubly;
 
 /**
  * 双向链表节点
@@ -6,11 +6,11 @@ package com.wdc.structure.list.list2;
  * @time 2022-07-09 10:33
  */
 public class DoublyNode {
-    int data;
+    Integer data;
     DoublyNode prev;// 前驱
     DoublyNode next;// 后继
 
-    public DoublyNode(int data) {
+    public DoublyNode(Integer data) {
         this.data = data;
     }
 }
