@@ -17,7 +17,7 @@ import java.util.Arrays;
 public class BubbleSort {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{3,9,-1,10,20};
+        int arr[] = {3, 9, -1, 10, 20};
 //        System.out.printf("排序后的数组", bubbleSort(arr));
         System.out.printf("优化排序后的数组", optimizeBubbleSort(arr));
     }
