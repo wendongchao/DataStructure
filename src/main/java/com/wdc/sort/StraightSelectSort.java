@@ -13,8 +13,12 @@ package com.wdc.sort;
  */
 public class StraightSelectSort {
 
-    public static int[] selectSort(int[] target){
+    public static void main(String[] args) {
+        int arr[] = {3, 9, -1, 10, 20};
+        selectSort(arr);
+    }
 
+    public static int[] selectSort(int[] target){
         if(target != null && target.length != 1){
             for (int i = 0; i < target.length; i++) {
                 int min_index = i;
