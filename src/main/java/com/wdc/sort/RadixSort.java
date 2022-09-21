@@ -1,4 +1,4 @@
-package com.wdc.algorithm.sort;
+package com.wdc.sort;
 
 /**
  * Title: 分配排序中的基数排序

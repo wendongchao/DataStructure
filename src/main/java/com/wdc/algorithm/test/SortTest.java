@@ -1,6 +1,7 @@
 package com.wdc.algorithm.test;
 
-import com.wdc.algorithm.sort.*;
+
+import com.wdc.sort.*;
 
 import java.util.Arrays;
 

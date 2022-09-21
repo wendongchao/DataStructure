@@ -1,4 +1,4 @@
-package com.wdc.algorithm.sort;
+package com.wdc.sort;
 
 import java.util.Arrays;
 
@@ -15,6 +15,12 @@ import java.util.Arrays;
  * @Date 2022/2/23 10:02
  */
 public class BubbleSort {
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{3,9,-1,10,20};
+//        System.out.printf("排序后的数组", bubbleSort(arr));
+        System.out.printf("优化排序后的数组", optimizeBubbleSort(arr));
+    }
 
     /**
      * @description 朴素冒泡排序(共进行n-1次比较)

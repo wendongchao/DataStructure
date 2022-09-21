@@ -1,4 +1,4 @@
-package com.wdc.algorithm.sort;
+package com.wdc.sort;
 
 /**
  * Title: 堆排序(选择排序)，升序排序(最大堆)

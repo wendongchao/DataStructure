@@ -1,4 +1,4 @@
-package com.wdc.algorithm.sort;
+package com.wdc.sort;
 
 /**
  * Title: 插入排序中的折半插入排序，依赖于初始序列

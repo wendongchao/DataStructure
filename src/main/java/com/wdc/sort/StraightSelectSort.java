@@ -1,4 +1,4 @@
-package com.wdc.algorithm.sort;
+package com.wdc.sort;
 
 /**
  * Title: 选择排序中的直接选择排序
