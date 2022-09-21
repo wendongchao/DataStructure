@@ -13,6 +13,11 @@ package com.wdc.sort;
  * @Date 2022/2/23 10:10
  */
 public class BinaryInsertSort {
+    public static void main(String[] args) {
+        int arr[] = {3, 9, -1, 10, 20};
+        binaryInsertSort(arr);
+    }
+
     public static int[] binaryInsertSort(int[] target) {
         if (target != null && target.length > 1) {
             for (int i = 1; i < target.length; i++) {
