@@ -26,7 +26,7 @@ public class BubbleSort {
             // 最多需要进行n-1躺，每一趟将比较小的元素移到前面，比较大的元素自然就逐渐沉到最后面了，这就是冒泡
             for (int i = 0; i < n-1; i++) {
                 for (int j = n-1; j > i; j--) {
-                    if(target[j] <target[j-1]){
+                    if(target[j] < target[j-1]){// 从后往前比较
                         int temp = target[j];
                         target[j] = target[j-1];
                         target[j-1] = temp;
@@ -47,9 +47,9 @@ public class BubbleSort {
         if (target != null && n != 1) {
             // 最多需要进行n-1躺，每一趟将比较小的元素移到前面，比较大的元素自然就逐渐沉到最后面了，这就是冒泡
             for (int i = 0; i < n-1; i++) {
-                boolean exchange = false;
+                boolean exchange = false;// 判断是否有进行比较的标志
                 for (int j = n-1; j > i; j--) {
-                    if(target[j] < target[j-1]){
+                    if(target[j] < target[j-1]){// 从后往前比较
                         int temp = target[j];
                         target[j] = target[j-1];
                         target[j-1] = temp;
