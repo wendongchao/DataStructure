@@ -70,7 +70,6 @@ public class DoublyLinkedList<E> {
             System.out.print(cur.data + " ");
             cur = cur.next;
         }
-        System.out.println();
     }
 
     public E get(int index) throws Exception {
