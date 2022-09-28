@@ -1,7 +1,8 @@
 package com.wdc.leetcode.array;
 
 /**
- * Titile: 移除重复的元素 Description:
+ * Titile: 移除重复的元素
+ *
  *
  * @auther dongchao
  * @time 2022/9/26 17:52
