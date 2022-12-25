@@ -43,6 +43,15 @@ public class ArrayStack {
         top--;
         return value;
     }
+    // 获取栈顶值
+    public int peek() {
+        //先判断栈是否空
+        if(isEmpty()) {
+            //抛出异常
+            throw new RuntimeException("栈空，没有数据~");
+        }
+        return stack[top];
+    }
     //显示栈的情况[遍历栈]， 遍历时，需要从栈顶开始显示数据
     public void list() {
         if(isEmpty()) {
