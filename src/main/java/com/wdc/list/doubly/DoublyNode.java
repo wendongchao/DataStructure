@@ -1,4 +1,4 @@
-package com.wdc.structure.list.doubly;
+package com.wdc.list.doubly;
 
 /**
  * 双向链表节点

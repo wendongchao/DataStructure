@@ -1,4 +1,4 @@
-package com.wdc.structure.list;
+package com.wdc.list;
 
 import lombok.Data;
 

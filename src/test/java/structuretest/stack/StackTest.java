@@ -1,6 +1,6 @@
 package structuretest.stack;
 
-import com.wdc.structure.stack.ArrayStack;
+import com.wdc.stack.ArrayStack;
 import junit.framework.TestCase;
 
 import java.util.Scanner;

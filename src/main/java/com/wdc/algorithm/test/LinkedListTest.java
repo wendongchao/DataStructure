@@ -1,7 +1,7 @@
 package com.wdc.algorithm.test;
 
 
-import com.wdc.structure.list.LinkedList;
+import com.wdc.list.LinkedList;
 
 /**
  * @author wendongchao

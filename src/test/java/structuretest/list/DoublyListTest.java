@@ -1,7 +1,7 @@
 package structuretest.list;
 
-import com.wdc.structure.list.DoublyLinkedList2;
-import com.wdc.structure.list.DoublyNode2;
+import com.wdc.list.DoublyLinkedList2;
+import com.wdc.list.DoublyNode2;
 import junit.framework.TestCase;
 
 /**

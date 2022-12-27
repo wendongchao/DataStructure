@@ -1,4 +1,4 @@
-package com.wdc.structure.list.single;
+package com.wdc.list.single;
 
 /**
  * 单链表节点

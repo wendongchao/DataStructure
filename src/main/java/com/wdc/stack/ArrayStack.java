@@ -1,4 +1,4 @@
-package com.wdc.structure.stack;
+package com.wdc.stack;
 
 /**
  * 数组栈
