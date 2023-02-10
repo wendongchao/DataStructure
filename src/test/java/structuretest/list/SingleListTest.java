@@ -1,6 +1,8 @@
 package structuretest.list;
 
 import com.wdc.list.SingleLinkedList;
+import com.wdc.list.SingleNode;
+import com.wdc.list.single.SingleList;
 import junit.framework.TestCase;
 
 /**
@@ -28,10 +30,20 @@ public class SingleListTest extends TestCase {
         SingleLinkedList<Integer> list = new SingleLinkedList<Integer>();
         list.add(1);
         list.add(2);
-//        list.add(3);
         list.add(3);
         list.add(2);
         list.add(1);
         list.isPalindrome();
+    }
+
+    public void test03() {
+        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        System.out.println(list.size());
+    }
+
+    public void test04() {
+        SingleList list = new SingleList();
+        System.out.println(list.size());
+        list.print();
     }
 }

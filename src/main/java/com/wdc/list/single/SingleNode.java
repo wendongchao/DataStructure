@@ -6,9 +6,10 @@ package com.wdc.list.single;
  * @time 2022-07-09 10:30
  */
 public class SingleNode {
-    Integer data;
+    int val;
     SingleNode next;
-    public SingleNode(Integer data) {
-        this.data = data;
+    public SingleNode(int val, SingleNode next) {
+        this.val = val;
+        this.next = next;
     }
 }

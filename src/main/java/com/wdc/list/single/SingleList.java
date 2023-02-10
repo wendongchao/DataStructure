@@ -1,19 +1,19 @@
 package com.wdc.list.single;
 
 
+
 /**
- * 单链表：头节点有数据
+ * 单链表
  * @author dongchao
  * @time 2022-07-09 10:35
  */
-public class LinkedList {
+public class SingleList {
     private SingleNode head; // 链表表头
     private int size; // 链表大小
 
     // 初始化头节点
-    public LinkedList() {
-        size = 0;
-        head = new SingleNode(0);
+    public SingleList() {
+        head = null;
     }
 
     // 获取头节点
@@ -34,8 +34,8 @@ public class LinkedList {
     // 输出链表
     public void print() {
         SingleNode cur = head;
-        while (cur.next != null) {
-            System.out.print(cur.data + " ");
+        while (cur != null) {
+            System.out.print(cur.val + " ");
             cur = cur.next;
         }
         System.out.println();
@@ -43,9 +43,9 @@ public class LinkedList {
 
     // 从尾到头输出单链表(递归法)
     public void reversePrint(SingleNode head) {
-        if (head.next != null) {
+        if (head != null) {
             reversePrint(head.next); // 不断"递去"
-            System.out.print(head.next.data + " "); // "归来"开始打印
+            System.out.print(head.next.val + " "); // "归来"开始打印
         }
     }
 
@@ -58,12 +58,12 @@ public class LinkedList {
         for (int i = 0; i < index; i++) {
             cur = cur.next;
         }
-        return cur.data;
+        return cur.val;
     }
 
     // 在链表的第一个元素之前添加一个值为data的新节点，插入后，新节点成员链表首节点
     public void addAtHead(int data) {
-        SingleNode node = new SingleNode(data);
+        SingleNode node = new SingleNode(data,null);
         if (isEmpty()) {// 如果是空链表，那么第一个节点就是该节点
             head = node;
         } else {
@@ -75,7 +75,7 @@ public class LinkedList {
 
     // 链表尾部追加节点
     public void addAtTail(int data) {
-        SingleNode node = new SingleNode(data);
+        SingleNode node = new SingleNode(data,null);
         if (isEmpty()) {
             addAtHead(data);
             return;
@@ -109,7 +109,7 @@ public class LinkedList {
             return;
         }
 
-        SingleNode node = new SingleNode(data);
+        SingleNode node = new SingleNode(data,null);
         SingleNode cur = head;
         for (int i = 0; i < index; i++) {
             cur = cur.next;
@@ -132,7 +132,7 @@ public class LinkedList {
 
         if (index == 0 ) {
             if (size == 1) {
-                SingleNode node = new SingleNode(null);
+                SingleNode node = new SingleNode(0,null);
                 head = node;
                 size--;
                 return;
@@ -163,7 +163,7 @@ public class LinkedList {
         while (cur.next != null) { // 外循环
             SingleNode temp = cur;
             while (temp != null && temp.next != null) { // 内循环
-                if (cur.data.equals(temp.next.data)) {
+                if (cur.val == temp.next.val) {
                     // temp 是重复节点的上一个节点
                     SingleNode node = temp.next;// 重复节点
                     temp = node.next;
@@ -299,22 +299,7 @@ public class LinkedList {
         return head;
     }
 
-    /**
-     * 反转链表
-     * @param head
-     * @return
-     */
-    public SingleNode reverseList(SingleNode head) {
-        SingleNode prev = null;
-        SingleNode curr = head;
-        while (curr != null) {
-            SingleNode temp = curr.next;
-            curr.next = null;
-            prev = curr;
-            curr = temp;
-        }
-        return prev;
-    }
+
 
 
 }
