@@ -3,6 +3,7 @@ package com.wdc.sort;
 import java.util.Arrays;
 
 /**
+ * 冒泡排序
  * Title: 交换排序中的冒泡排序 ，一般情形下指的是优化后的冒泡排序，最多进行n-1次比较
  * Description:因为越大的元素会经由交换慢慢"浮"到数列的顶端(最后位置)，最大的数最后才确定下来，所以称为冒泡排序
  * 时间复杂度：最好情形O(n)，平均情形O(n^2)，最差情形O(n^2)
@@ -14,7 +15,7 @@ import java.util.Arrays;
  * @ClassName BubbleSort
  * @Date 2022/2/23 10:02
  */
-public class BubbleSort {
+public class Sort01_BubbleSort {
 
     public static void main(String[] args) {
         int arr[] = {3, 9, -1, 10, 20};
@@ -23,7 +24,8 @@ public class BubbleSort {
     }
 
     /**
-     * @description 朴素冒泡排序(共进行n-1次比较)
+     * 冒泡排序(共进行n-1次比较)
+     * 时间复杂度：(n-1)*(n-1) -> n^2
      * @author rico
      */
     public static int[] bubbleSort(int[] target) {
@@ -45,7 +47,7 @@ public class BubbleSort {
     }
 
     /**
-     * @description 优化冒泡排序
+     * 优化冒泡排序
      * @author rico
      */
     public static int[] optimizeBubbleSort(int[] target) {
@@ -63,7 +65,7 @@ public class BubbleSort {
                     }
                 }
                 System.out.println(Arrays.toString(target));
-                if (!exchange){
+                if (!exchange){// 已经没有比较元素了，就直接返回
                     return target;
                 }
             }
