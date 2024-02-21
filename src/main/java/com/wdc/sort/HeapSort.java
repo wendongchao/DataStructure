@@ -7,6 +7,7 @@ package com.wdc.sort;
  * 空间复杂度：O(1)
  * 稳 定 性：不稳定
  * 内部排序(在排序过程中数据元素完全在内存)
+ *
  * @author wendongchao
  * @ClassName HeapSort
  * @Date 2022/2/23 10:10
@@ -14,35 +15,34 @@ package com.wdc.sort;
 public class HeapSort {
 
     public static int[] heapSort(int[] target) {
-        if (target != null && target.length > 1) {
-
-            // 调整为最大堆
-            int pos = (target.length - 2) / 2;
-            while (pos >= 0) {
-                shiftDown(target, pos, target.length - 1);
-                pos--;
-            }
-
-            // 堆排序
-            for (int i = target.length-1; i > 0; i--) {
-                int temp = target[i];
-                target[i] = target[0];
-                target[0] = temp;
-                shiftDown(target, 0, i-1);
-            }
+        if (target == null || target.length == 0) {
             return target;
+        }
+        // 调整为最大堆
+        int pos = (target.length - 2) / 2;
+        while (pos >= 0) {
+            shiftDown(target, pos, target.length - 1);
+            pos--;
+        }
+
+        // 堆排序
+        for (int i = target.length - 1; i > 0; i--) {
+            int temp = target[i];
+            target[i] = target[0];
+            target[0] = temp;
+            shiftDown(target, 0, i - 1);
         }
         return target;
     }
 
 
     /**
-     * @description 自上而下调整为最大堆
-     * @author rico
-     * @created 2017年5月25日 上午9:45:40
      * @param target
      * @param start
      * @param end
+     * @description 自上而下调整为最大堆
+     * @author rico
+     * @created 2017年5月25日 上午9:45:40
      */
     private static void shiftDown(int[] target, int start, int end) {
         int i = start;

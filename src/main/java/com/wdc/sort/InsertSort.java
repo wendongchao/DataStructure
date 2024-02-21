@@ -15,6 +15,7 @@ public class InsertSort {
 
     /**
      * 简单插入排序：一个数组，从第二位开始，与前面数据比较，并排序，一直到最后一位
+     *
      * @param arr
      * @return
      */

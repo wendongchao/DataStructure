@@ -4,21 +4,22 @@ import java.util.Arrays;
 
 /**
  * 小数堆：堆顶元素小于左右子节点
+ *
  * @auther: dongchao
  * @data: 2022/9/30 16:05
  */
 public class HeapSortMin {
     public static void main(String[] args) {
-        int[] arr = {3,2,3,1,2,4,5,5,6};
+        int[] arr = {3, 2, 3, 1, 2, 4, 5, 5, 6};
         buildMinHeap(arr);
         int size = arr.length;
 
         // 固定最小值，数组从大到小
         while (size > 1) {
-            swap(arr,0,size-1);
+            swap(arr, 0, size - 1);
             size--;
             // 构建最小堆
-            heapify(arr,0,size);
+            heapify(arr, 0, size);
         }
         System.out.println(Arrays.toString(arr));
     }
@@ -34,7 +35,7 @@ public class HeapSortMin {
             // 然后继续和上面的父结点值比较，直到不小于父结点，则退出循环
             while (nums[currentIndex] < nums[fatherIndex]) {
                 // 交换当前结点与父结点的值
-                swap(nums,currentIndex,fatherIndex);
+                swap(nums, currentIndex, fatherIndex);
                 // 将当前索引指向父索引
                 currentIndex = fatherIndex;
                 // 重新计算当前索引的父索引
@@ -66,7 +67,7 @@ public class HeapSortMin {
                 break;
             }
             // 父结点不是最小值，与孩子中较小的值交换
-            swap(nums,leastIndex,index);
+            swap(nums, leastIndex, index);
             // 将索引指向孩子中较小的值的索引
             index = leastIndex;
             // 重新计算交换之后的孩子的索引
