@@ -1,7 +1,6 @@
 package structuretest.list;
 
 import com.wdc.list.SingleLinkedList;
-import com.wdc.list.SingleNode;
 import com.wdc.list.single.SingleList;
 import junit.framework.TestCase;
 

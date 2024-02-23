@@ -9,6 +9,7 @@ public class TreeNode {
     int val;
     TreeNode left;// 左指针
     TreeNode right;// 右指针
+    int depth;// 节点深度
     TreeNode(int val) {
         this.val = val;
     }
