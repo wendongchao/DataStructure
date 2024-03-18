@@ -31,13 +31,13 @@ public class SortTest {
         System.out.println("冒泡排序 ： ");
         int[] target3 = { 1, 2, 3, 4, 5, 8, 7, 6 };
         System.out.println("原数组 ： " + Arrays.toString(target3));
-        Sort01_BubbleSort.bubbleSort(target3);
+        BubbleSort.bubbleSort(target3);
 
         System.out.println("\n----------------------\n");
         System.out.println("优化冒泡排序 ： ");
         int[] target4 = { 1, 2, 3, 4, 5, 8, 7, 6 };
         System.out.println("原数组 ： " + Arrays.toString(target4));
-        Sort01_BubbleSort.optimizeBubbleSort(target4);
+        BubbleSort.optimizeBubbleSort(target4);
 
         System.out.println("\n----------------------\n");
         System.out.println("归并排序 ： ");
@@ -85,7 +85,7 @@ public class SortTest {
         System.out.println("折半插入排序 ： ");
         int[] target11 = { 21, 25, 49, 25, 16, 18, 31, 41, 21, 9 };
         System.out.println("原数组 ： " + Arrays.toString(target11));
-        BinaryInsertSort.binaryInsertSort(target11);
+//        BinaryInsertSort.binaryInsertSort(target11);
         System.out.println(Arrays.toString(target11));
     }
 }

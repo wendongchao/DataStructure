@@ -1,9 +1,6 @@
 package com.wdc.tree;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * @auther wendongchao
@@ -49,6 +46,73 @@ public class BinaryTree {
         arr[index] = root.val;
         treeToArray(arr, root.left, 2 * index + 1);
         treeToArray(arr, root.right, 2 * index + 2);
+    }
+
+    // 前序遍历-树转列表（使用层序遍历的方式）
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        if (root == null) return list;
+        stack.push(root);
+        while (!stack.isEmpty()){
+            TreeNode pop = stack.pop();
+            // 注意：栈是先进后出，所以先添加右节点
+            if (pop.right != null) {
+                stack.push(pop.right);
+            }
+            if (pop.left != null) {
+                stack.push(pop.left);
+            }
+            list.add(pop.val);
+        }
+        return list;
+    }
+
+    // 中序遍历-树转列表（使用层序遍历的方式）
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        if (root == null) return list;
+        TreeNode cur = new TreeNode(-1);
+        cur = root;
+        while (!stack.isEmpty()|| cur != null) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            TreeNode pop = stack.pop();
+            list.add(pop.val);
+            cur = pop.right;
+        }
+        return list;
+    }
+
+    // 后序遍历-树转列表（使用层序遍历的方式）
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) return list;
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode cur = root;
+        // 记录上一个访问节点
+        TreeNode preNode = null;
+        while (!stack.isEmpty() || cur != null) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            // 出栈
+            cur = stack.pop();
+            // 当前节点没有右子树或者右子树已经访问过
+            if (cur.right == null || cur.right == preNode) {
+                list.add(cur.val);
+                preNode = cur;
+                cur = null;
+            } else {
+                stack.push(cur);
+                cur = cur.right;
+            }
+        }
+        return list;
     }
 
     // 前序遍历
