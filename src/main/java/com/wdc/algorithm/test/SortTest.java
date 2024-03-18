@@ -17,14 +17,14 @@ public class SortTest {
         int[] target1 = { 38, 65, 97, 76, 13, 27, 49 };
         System.out.println("直接选择排序 ： ");
         System.out.println("原数组 ： " + Arrays.toString(target1));
-        StraightSelectSort.selectSort(target1);
+//        StraightSelectSort.selectSort(target1);
         System.out.println(Arrays.toString(target1));
 
         System.out.println("\n----------------------\n");
         System.out.println("直接插入排序 ： ");
         int[] target2 = { 38, 65, 97, 76, 13, 27, 49 };
         System.out.println("原数组 ： " + Arrays.toString(target2));
-        StraightInsertionSort.insertSort(target2);
+//        StraightInsertionSort.insertSort(target2);
         System.out.println(Arrays.toString(target2));
 
         System.out.println("\n----------------------\n");
@@ -74,12 +74,12 @@ public class SortTest {
         RadixSort.radixSort(target9,10,2,target9.length);
         System.out.println(Arrays.toString(target9));
 
-        System.out.println("\n----------------------\n");
-        System.out.println("堆排序 ： ");
-        int[] target10 = { 21, 25, 49, 25, 16, 18, 31, 41 };
-        System.out.println("原数组 ： " + Arrays.toString(target10));
-        HeapSort.heapSort(target10);
-        System.out.println(Arrays.toString(target10));
+//        System.out.println("\n----------------------\n");
+//        System.out.println("堆排序 ： ");
+//        int[] target10 = { 21, 25, 49, 25, 16, 18, 31, 41 };
+//        System.out.println("原数组 ： " + Arrays.toString(target10));
+//        HeapSort.heapSort(target10);
+//        System.out.println(Arrays.toString(target10));
 
         System.out.println("\n----------------------\n");
         System.out.println("折半插入排序 ： ");

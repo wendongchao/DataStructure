@@ -1,12 +1,11 @@
 package com.wdc.sort;
 
+import java.util.Arrays;
+
 /**
- * Title: 堆排序(选择排序)，升序排序(最大堆)
- * Description: 现将给定序列调整为最大堆，然后每次将堆顶元素与堆尾元素交换并缩小堆的范围，直到将堆缩小至1
- * 时间复杂度：O(nlgn)
- * 空间复杂度：O(1)
- * 稳 定 性：不稳定
- * 内部排序(在排序过程中数据元素完全在内存)
+ * 堆排序要求
+ * 1、必须完全二叉树
+ * 2、父节点大于等于（小于等于）子节点
  *
  * @author wendongchao
  * @ClassName HeapSort
@@ -14,52 +13,90 @@ package com.wdc.sort;
  */
 public class HeapSort {
 
-    public static int[] heapSort(int[] target) {
-        if (target == null || target.length == 0) {
-            return target;
-        }
-        // 调整为最大堆
-        int pos = (target.length - 2) / 2;
-        while (pos >= 0) {
-            shiftDown(target, pos, target.length - 1);
-            pos--;
-        }
+    public static void main(String[] args) {
+        int[] arr = {3, 2, 3, 1, 2, 4, 5, 5, 6};
+        buildHeap(arr);
+        int size = arr.length;
 
-        // 堆排序
-        for (int i = target.length - 1; i > 0; i--) {
-            int temp = target[i];
-            target[i] = target[0];
-            target[0] = temp;
-            shiftDown(target, 0, i - 1);
+        // 固定最小值，数组从大到小
+        while (size > 1) {
+            swap(arr, 0, size - 1);
+            size--;
+            // 构建最小堆
+            minHeapify(arr, 0, size);
         }
-        return target;
+        System.out.println(Arrays.toString(arr));
     }
 
-
     /**
-     * @param target
-     * @param start
-     * @param end
-     * @description 自上而下调整为最大堆
-     * @author rico
-     * @created 2017年5月25日 上午9:45:40
+     * 无序数组构建最小堆，父节点小于左右子节点
+     *
+     * @param nums
+     * @author dongchao
+     * @date 2024/3/18 15:54
      */
-    private static void shiftDown(int[] target, int start, int end) {
-        int i = start;
-        int j = 2 * start + 1;
-        int temp = target[i];
-        while (j <= end) {   // 迭代条件
-            if (j < end && target[j + 1] > target[j]) {  //找出较大子女
-                j = j + 1;
-            }
-            if (target[j] <= temp) {  // 父亲大于子女
-                break;
-            } else {
-                target[i] = target[j];
-                i = j;
-                j = 2 * j + 1;
+    public static void buildHeap(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            // 当前索引
+            int currentIndex = i;
+            // 父索引
+            int fatherIndex = (currentIndex - 1) / 2;
+            // 因为构建最小堆，如果当前插入的值小于其父结点的值,则交换值，并且将索引指向父结点
+            // 然后继续和上面的父结点值比较，直到不小于父结点，则退出循环
+            while (nums[currentIndex] < nums[fatherIndex]) {
+                // 交换当前结点与父结点的值
+                swap(nums, currentIndex, fatherIndex);
+                // 将当前索引指向父索引
+                currentIndex = fatherIndex;
+                // 重新计算当前索引的父索引
+                fatherIndex = (currentIndex - 1) / 2;
             }
         }
-        target[i] = temp;
+    }
+
+    /**
+     * 最小堆排序（通过顶端的数下降）
+     *
+     * @param nums
+     * @param index
+     * @param size
+     * @author dongchao
+     * @date 2024/3/18 15:53
+     */
+    public static void minHeapify(int[] nums, int index, int size) {
+        int left = 2 * index + 1;// 左边节点
+        int right = 2 * index + 2;// 右边节点
+        while (left < size) {
+            int leastIndex;
+            // 判断孩子中较小的值的索引（要确保右孩子在size范围之内）
+            if (right < size && nums[left] > nums[right]) {
+                leastIndex = right;
+            } else {
+                leastIndex = left;
+            }
+            // 比较父结点的值与孩子中较小的值，并确定最小值的索引
+            if (nums[index] < nums[leastIndex]) {
+                leastIndex = index;
+            }
+
+            // 如果父结点索引是最小值的索引，那已经是小根堆了，则退出循环
+            if (index == leastIndex) {
+                break;
+            }
+            // 父结点不是最小值，与孩子中较小的值交换
+            swap(nums, leastIndex, index);
+            // 重新设置当前索引，继续交换
+            index = leastIndex;
+            // 重新计算交换之后的孩子的索引
+            left = 2 * index + 1;
+            right = 2 * index + 2;
+        }
+    }
+
+    // 交换
+    public static void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 }

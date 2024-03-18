@@ -1,6 +1,5 @@
 package com.wdc.leetcode.array;
 
-import com.wdc.sort.HeapSortMin;
 import com.wdc.sort.QuickSort;
 
 /**
@@ -38,16 +37,16 @@ public class FindKthLargest {
         if (nums == null || nums.length == 0) {
             return -1;
         }
-        HeapSortMin.buildMinHeap(nums);
+//        HeapSortMin.buildMinHeap(nums);
 
         int size = nums.length;
 
         // 固定最小值，数组从大到小
         while (size > 1) {
-            HeapSortMin.swap(nums,0,size-1);
+//            HeapSortMin.swap(nums,0,size-1);
             size--;
             // 构建最小堆
-            HeapSortMin.heapify(nums,0,size);
+//            HeapSortMin.heapify(nums,0,size);
         }
         // 生成的数组：从大到小
         return nums[k-1];
