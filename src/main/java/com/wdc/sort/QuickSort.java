@@ -7,31 +7,32 @@ import java.util.Arrays;
  * Title: 快速排序
  * 填坑法
  * 交换指针
+ *
  * @author wendongchao
  * @ClassName QuickSort
  * @Date 2022/2/23 10:12
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int[] arr = {4,7,6,5,3,2,8,1};
-        quickSort(arr,0,arr.length-1);
+        int[] arr = {4, 7, 6, 5, 3, 2, 8, 1};
+        quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 
     // 填坑法：递归实现
     public static int[] quickSort(int[] target, int startIndex, int endIndex) {
-        if(endIndex > startIndex){     // 递归终止条件
+        if (endIndex > startIndex) {     // 递归终止条件
             // 获取基准元素位置
-            int pivot_index = partition(target,startIndex, endIndex);
+            int pivot_index = partition(target, startIndex, endIndex);
             // 用分治法递归数列的两部分
-            quickSort(target, startIndex, pivot_index-1);    // 对左边数列，不包含基准元素！
-            quickSort(target, pivot_index+1, endIndex);   // 对右边数列，不包含基准元素！
+            quickSort(target, startIndex, pivot_index - 1);    // 对左边数列，不包含基准元素！
+            quickSort(target, pivot_index + 1, endIndex);   // 对右边数列，不包含基准元素！
         }
         return target;
     }
 
     // 获取基准元素
-    public static int partition(int[] target, int startIndex, int endIndex){
+    public static int partition(int[] target, int startIndex, int endIndex) {
         // 取第一个位置的元素为基准元素
         int pivot = target[startIndex];
         int left = startIndex;
@@ -44,8 +45,12 @@ public class QuickSort {
             // right指针从右往左进行比较
             while (right >= left) {
                 if (target[right] < pivot) {
+                    // left位置是坑，已经提前保存了，
+                    // 直接将right位置的元素填到left位置即可
                     target[left] = target[right];
+                    // 坑的位置转换为right
                     index = right;
+                    // left向右移动跳出原来的坑，进行下一轮比较
                     left++;
                     break;
                 }
